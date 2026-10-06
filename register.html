@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - TechConf 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="images/Kirinyaga University Crest Emblem.png" alt="University Emblem">
+                <div class="logo">TechConf 2026</div>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="register.html">Register</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2 style="margin-bottom: 2rem; text-align: center;">Conference Registration</h2>
+            
+            <form id="registrationForm" action="process.php" method="POST" onsubmit="return validateForm(event)">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="e.g. Mary Wanjiku" oninput="validateInput(this)">
+                    <div class="error-message" id="fullNameError">Full name cannot be empty.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="admissionNumber">Admission/Registration Number</label>
+                    <input type="text" id="admissionNumber" name="admissionNumber" placeholder="e.g. BIT/1234/2026" oninput="validateInput(this)">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="mary@example.com" oninput="validateInput(this)">
+                    <div class="error-message" id="emailError">Please enter a valid email address.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="e.g. 0712345678" oninput="validateInput(this)">
+                    <div class="error-message" id="phoneError">Phone number must contain exactly 10 digits.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="yearOfStudy">Year of Study</label>
+                    <select id="yearOfStudy" name="yearOfStudy">
+                        <option value="">Select Year...</option>
+                        <option value="1">Year 1</option>
+                        <option value="2">Year 2</option>
+                        <option value="3">Year 3</option>
+                        <option value="4">Year 4</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="conferenceDays">Number of Conference Days</label>
+                    <input type="number" id="conferenceDays" name="conferenceDays" min="1" max="3" value="1" onchange="calculateFee()" oninput="validateInput(this)">
+                    <div class="error-message" id="daysError">Conference days must be between 1 and 3.</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Participation Category</label>
+                    <select id="participationCategory" name="participationCategory" onchange="showWorkshop()">
+                        <option value="">Select Category...</option>
+                        <option value="Conference Only">Conference Only</option>
+                        <option value="Workshop Participant">Workshop Participant</option>
+                    </select>
+                    <div class="error-message" id="categoryError">Please select a participation category.</div>
+                </div>
+
+                <div id="workshopSection" class="hidden">
+                    <div class="form-group">
+                        <label>Workshop Selection</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="workshop1" value="Web Development" onchange="calculateFee()"> Web Development (KSh 750)</label>
+                            <label><input type="checkbox" name="workshop2" value="Advanced AI" onchange="calculateFee()"> Advanced AI (KSh 1,000)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Meal Option (Catering)</label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="catering" value="Yes" onchange="toggleMeals()"> Yes</label>
+                        <label><input type="radio" name="catering" value="No" onchange="toggleMeals()" checked> No</label>
+                    </div>
+                </div>
+
+                <div id="mealSection" class="hidden">
+                    <div class="form-group">
+                        <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: -0.5rem;">Lunch will be charged at KSh 300 per day of attendance.</p>
+                    </div>
+                </div>
+
+                <div class="fee-summary">
+                    <h3>Fee Summary</h3>
+                    <div id="packageMessage" style="margin-bottom: 1rem; font-style: italic; color: #c084fc;">Please select options to view your package.</div>
+                    <div class="fee-row">
+                        <span>Registration Fee:</span>
+                        <span>KSh <span id="regFeeDisplay">1,000</span></span>
+                    </div>
+                    <div class="fee-row">
+                        <span>Attendance Fee:</span>
+                        <span>KSh <span id="attendanceFeeDisplay">500</span></span>
+                    </div>
+                    <div class="fee-row">
+                        <span>Workshop Fee:</span>
+                        <span>KSh <span id="workshopFeeDisplay">0</span></span>
+                    </div>
+                    <div class="fee-row">
+                        <span>Meal Fee:</span>
+                        <span>KSh <span id="mealFeeDisplay">0</span></span>
+                    </div>
+                    <div class="fee-total">
+                        <span>Total Payable:</span>
+                        <span>KSh <span id="totalFeeDisplay">1,500</span></span>
+                    </div>
+                </div>
+                
+                <input type="hidden" id="calculatedTotal" name="calculatedTotal" value="1500">
+
+                <div style="margin-top: 2rem; text-align: center;">
+                    <button type="submit" class="btn" style="width: 100%;">Complete Registration</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

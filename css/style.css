@@ -1,0 +1,207 @@
+/* Basic Reset for School Project */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Home Page Specific Background */
+body.home-page {
+    background-image: linear-gradient(rgba(244, 247, 246, 0.85), rgba(244, 247, 246, 0.85)), url('../images/campus.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Header with Kirinyaga University Colors (Blue) */
+header {
+    background-color: #003366; 
+    color: white;
+    padding: 15px 0;
+}
+
+nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-container img {
+    height: 60px; /* Adjust emblem size */
+    background: white;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+}
+
+/* Main Content Area */
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero p {
+    margin-bottom: 20px;
+}
+
+/* Event Details Section */
+.event-details {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.detail-item strong {
+    display: block;
+    color: #003366;
+    margin-bottom: 5px;
+}
+
+/* Button Styling (Yellow accent) */
+.btn {
+    display: inline-block;
+    background-color: #ffcc00; 
+    color: #003366;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+.btn:hover {
+    background-color: #e6b800;
+}
+
+/* Form Container Background */
+.form-container {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.93), rgba(255, 255, 255, 0.93)), url('../images/Kirinyaga University Crest Emblem.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+/* Error Messages - No Emojis */
+.error-message {
+    color: #cc0000;
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: none;
+    font-weight: bold;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Fee Summary Section */
+.fee-summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-top: 30px;
+}
+
+.fee-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.fee-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #ccc;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #003366;
+}
